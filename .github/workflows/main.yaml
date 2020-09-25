@@ -18,7 +18,7 @@ jobs:
     needs: build
     steps:
       - uses: actions/checkout@v2
-      - uses: dist/
+      - uses: ./
         with:
           key: apollo-key
           schema-variant: sandbox
