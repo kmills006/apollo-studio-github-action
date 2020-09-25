@@ -40,5 +40,5 @@ jobs:
         with:
           command: service:check
           schema-variant: sandbox
-        # env:
-        #   APOLLO_KEY: ${{ secrets.APOLLO_KEY }}
+        env:
+          APOLLO_KEY: ${{ secrets.APOLLO_KEY }}
