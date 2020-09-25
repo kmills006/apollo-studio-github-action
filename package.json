@@ -7,6 +7,7 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc --build",
+    "compile": "ncc build src/index.ts -m",
     "lint": "npx eslint --ext .ts ./ --quiet --cache",
     "lint:fix": "npx eslint --ext .ts ./ --fix",
     "start": "node dist/index.js",
@@ -17,6 +18,7 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.2.0",
     "@typescript-eslint/parser": "^4.2.0",
+    "@vercel/ncc": "^0.24.1",
     "eslint": "7.2.0",
     "eslint-config-airbnb-base": "14.2.0",
     "eslint-plugin-import": "^2.21.2",
