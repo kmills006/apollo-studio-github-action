@@ -15,8 +15,9 @@ fi
 
 if ! command -v apollo &> /dev/null
 then
-    echo "apollo-tooling not installed"
-    exit
+    echo "installing apollo-tooling"
+    npm install -g apollo
+    apollo -v
 fi
 
 time=$(date)
