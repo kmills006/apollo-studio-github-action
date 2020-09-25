@@ -17,7 +17,6 @@ jobs:
         run: yarn install
 
       - name: Start Apollo Server
-        working-directory: services/${{ matrix.package }}
         shell: bash
         run: yarn start &
 
