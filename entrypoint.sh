@@ -4,14 +4,13 @@ ACTION=$1
 APOLLO_KEY=$2
 SCHEMA_VARIANT=$3
 
-echo "\033[1;32mBeginning $ACTION with Apollo Studio... 🚀 \033[0m"
+echo "Beginning $ACTION with Apollo Studio... 🚀 "
 
 echo "$ACTION, $APOLLO_KEY, $SCHEMA_VARIANT"
 
-if ! command -v npm &> /dev/null
+if which npm > /dev/null
 then
-    echo "NPM not installed"
-    exit
+    echo "npm is installed, skipping..."
 fi
 
 if ! command -v apollo &> /dev/null
