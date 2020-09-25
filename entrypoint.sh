@@ -24,8 +24,8 @@ fi
 if ! command -v apollo &> /dev/null
 then
   echo "installing apollo-tooling"
-  # npm install -g apollo
-  # apollo -v
+  npm install -g apollo
+  apollo -v
 fi
 
 echo "pwd && ls -alh"
@@ -33,6 +33,7 @@ pwd
 ls -alh
 
 yarn start &
+sleep 5
 apollo $COMMAND --variant=$SCHEMA_VARIANT
 
 time=$(date)
