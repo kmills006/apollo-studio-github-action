@@ -1,10 +1,13 @@
-import * as core from '@actions/core';
+import core from '@actions/core';
 
 async function run(): Promise<void> {
   console.log('Hello from your GitHub action!');
   try {
-    console.log('core.getInput(key)', core.getInput('key'));
-    console.log('core.getInput(schema-var)', core.getInput('schema-variant'));
+    const key = core.getInput('key');
+    const schemaVariant = core.getInput('schema-variant');
+
+    console.log('key', key);
+    console.log('schemaVariant', schemaVariant);
 
     core.setOutput('time', new Date().toTimeString());
   } catch (error) {

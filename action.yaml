@@ -1,7 +1,7 @@
 name: 'Apollo Studio: Validate and Publish Schema'
 description: 'GitHub Action for validating and publishing your GraphQL schemas to Apollo Studio.'
 inputs:
-  key:
+  apollo-key:
     description: 'Apollo Studio Key'
     required: true
   schema-variant:
@@ -12,5 +12,8 @@ outputs:
   time: # id of output
     description: 'The time we greeted you'
 runs:
-  using: 'node12'
-  main: 'dist/index.js'
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.apollo-key }}
+    - ${{ inputs.schema-variant }}
