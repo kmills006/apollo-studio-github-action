@@ -38,5 +38,6 @@ jobs:
       - name: Validate Apollo Schema
         uses: ./
         with:
+          action: validate
           apollo-key: ${{ secrets.APOLLO_KEY }}
           schema-variant: sandbox
