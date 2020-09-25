@@ -1,6 +1,9 @@
 # Container image that runs your code
 FROM node:12 AS build
 
+ARG APOLLO_KEY=$APOLLO_KEY
+ENV APOLLO_KEY=$APOLLO_KEY
+
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY entrypoint.sh /entrypoint.sh
 

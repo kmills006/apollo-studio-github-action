@@ -1,12 +1,9 @@
 #!/bin/sh -l
 
-ARG APOLLO_KEY=$APOLLO_KEY
-ENV APOLLO_KEY=$APOLLO_KEY
-
 COMMAND=$1
 SCHEMA_VARIANT=$3
 
-if ! [ APOLLO_KEY ]
+if ! [ $APOLLO_KEY ]
 then
   echo "APOLLO_KEY must be supplied as an environment variable."
   exit
