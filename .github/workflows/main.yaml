@@ -10,7 +10,27 @@ jobs:
   test: # make sure the action works on a clean machine without building
     runs-on: ubuntu-latest
     steps:
+      - name: Check out repository
       - uses: actions/checkout@v2
+
+      - name: Install deps and build test server
+        run: yarn install
+
+      - name: Install deps and build test server
+        run: yarn install
+
+      - name: Install Dependencies
+        run: yarn install
+
+      - name: Start Apollo Server
+        working-directory: services/${{ matrix.package }}
+        shell: bash
+        run: yarn start &
+
+      - name: Wait for the server to start
+        run: sleep 5
+
+      - name: Validate Apollo Schema
       - uses: ./
         with:
           apollo-key: apollo-key
