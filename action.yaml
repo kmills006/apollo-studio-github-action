@@ -1,0 +1,16 @@
+name: 'Apollo Studio: Validate and Publish Schema'
+description: 'GitHub Action for validating and publishing your GraphQL schemas to Apollo Studio.'
+inputs:
+  key:
+    description: 'Apollo Studio Key'
+    required: true
+  schema-variant:
+    description: 'Schema variant to validate or publish against.'
+    required: true
+    default: 'current'
+outputs:
+  time: # id of output
+    description: 'The time we greeted you'
+runs:
+  using: 'node12'
+  main: 'index.js'
