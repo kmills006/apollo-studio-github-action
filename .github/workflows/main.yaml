@@ -16,12 +16,6 @@ jobs:
       - name: Install deps and build test server
         run: yarn install
 
-      - name: Install deps and build test server
-        run: yarn install
-
-      - name: Install Dependencies
-        run: yarn install
-
       - name: Start Apollo Server
         working-directory: services/${{ matrix.package }}
         shell: bash
