@@ -28,9 +28,9 @@ jobs:
       - name: Install deps and build test server
         run: yarn install
 
-      - name: Start Apollo Server
-        shell: bash
-        run: yarn start &
+      # - name: Start Apollo Server
+      #   shell: bash
+      #   run: yarn start &
 
       - name: Wait for the server to start
         run: sleep 5

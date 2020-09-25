@@ -32,7 +32,8 @@ echo "pwd && ls -alh"
 pwd
 ls -alh
 
-# apollo $COMMAND --variant=$SCHEMA_VARIANT
+yarn start &
+apollo $COMMAND --variant=$SCHEMA_VARIANT
 
 time=$(date)
 echo "::set-output name=time::$time"
