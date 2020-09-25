@@ -9,6 +9,7 @@
     "build": "tsc --build",
     "lint": "npx eslint --ext .ts ./ --quiet --cache",
     "lint:fix": "npx eslint --ext .ts ./ --fix",
+    "postinstall": "yarn build",
     "start": "node dist/index.js",
     "start:dev": "tsc-watch --onSuccess \"node dist/index.js\"",
     "test": "jest --coverage",
@@ -27,7 +28,7 @@
     "typescript": "^4.0.3"
   },
   "dependencies": {
-    "@actions/core": "^1.2.6",
-    "@actions/github": "^4.0.0"
+    "apollo-server": "^2.18.1",
+    "graphql": "^15.3.0"
   }
 }

@@ -1,15 +1,38 @@
-import * as core from '@actions/core';
+import { gql, ApolloServer } from 'apollo-server';
 
-async function run(): Promise<void> {
-  console.log('Hello from your GitHub action!');
-  try {
-    console.log('core.getInput(key)', core.getInput('key'));
-    console.log('core.getInput(schema-var)', core.getInput('schema-variant'));
-
-    core.setOutput('time', new Date().toTimeString());
-  } catch (error) {
-    core.setFailed(error.message);
-  }
+interface Movie {
+  name: string;
+  year: number;
 }
 
-run();
+const typeDefs = gql`
+  type Movie {
+    name: String!
+    year: Int!
+  }
+
+  type Query {
+    movies: [Movie]
+  }
+`;
+
+const resolvers = {
+  Query: {
+    movies: (): Movie[] => ([
+      { name: 'Jurassic Park', year: 1993 },
+      { name: 'The Lost World', year: 1997 },
+      { name: 'Jurassic Park III', year: 2001 },
+      { name: 'Jurassic World', year: 2015 },
+      { name: 'Jurassic World: Fallen Kingdom', year: 2018 },
+    ]),
+  },
+};
+
+const server = new ApolloServer({
+  resolvers,
+  typeDefs,
+});
+
+server.listen({ port: 3000 }, () => {
+  console.log('🦖 Apollo Server running at port: 3000');
+});
