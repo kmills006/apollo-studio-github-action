@@ -3,16 +3,18 @@
 ARG APOLLO_KEY=$APOLLO_KEY
 ENV APOLLO_KEY=$APOLLO_KEY
 
-ACTION=$1
-APOLLO_KEY_INPUT=$2
+COMMAND=$1
 SCHEMA_VARIANT=$3
 
-echo "Beginning $ACTION with Apollo Studio... 🚀 "
+if ! [ APOLLO_KEY ]
+then
+  echo "APOLLO_KEY must be supplied as an environment variable."
+  exit
+fi
 
-echo "APOLLO_KEY: $APOLLO_KEY"
-echo "APOLLO_KEY_INPUT: $APOLLO_KEY_INPUT"
+echo "Beginning $COMMAND with Apollo Studio... 🚀 "
 
-echo "$ACTION, $APOLLO_KEY, $SCHEMA_VARIANT"
+echo "$COMMAND, $APOLLO_KEY, $SCHEMA_VARIANT"
 
 if which npm > /dev/null
 then
