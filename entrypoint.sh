@@ -11,17 +11,17 @@ echo "$ACTION, $APOLLO_KEY, $SCHEMA_VARIANT"
 if which npm > /dev/null
 then
     echo "npm is installed, skipping..."
+else
+    echo "this action needs npm, check the image."
+    exit
 fi
 
 if ! command -v apollo &> /dev/null
 then
     echo "installing apollo-tooling"
-    npm -v
-    # npm install -g apollo
-    # apollo -v
+    npm install -g apollo
+    apollo -v
 fi
-
-npm -v
 
 time=$(date)
 echo "::set-output name=time::$time"
