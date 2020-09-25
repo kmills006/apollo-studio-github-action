@@ -1,0 +1,25 @@
+{
+  "name": "apollo-studio-github-action",
+  "description": "GitHub Action for validating and publishing your GraphQL schemas to Apollo Studio.",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "author": "Kristy Miller <kristy@goodmoney.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc --build",
+    "lint": "npx eslint --ext .ts ./ --quiet --cache",
+    "lint:fix": "npx eslint --ext .ts ./ --fix",
+    "start": "node dist/index.js",
+    "start:dev": "tsc-watch --onSuccess \"node dist/index.js\""
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.2.0",
+    "@typescript-eslint/parser": "^4.2.0",
+    "eslint": "7.2.0",
+    "eslint-config-airbnb-base": "14.2.0",
+    "eslint-plugin-import": "^2.21.2",
+    "ts-node": "^9.0.0",
+    "tsc-watch": "^4.2.9",
+    "typescript": "^4.0.3"
+  }
+}
